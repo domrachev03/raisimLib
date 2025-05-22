@@ -1710,7 +1710,7 @@ class ArticulatedSystem : public Object {
   void getFullDelassusAndTauStar(double dt);
   void appendJointLimits(contact::ContactProblems &problem) final;
 
- private:
+ public:
   /// for computation
   /// Frames:: W: world, B: body, P: parent
 
@@ -1776,7 +1776,6 @@ class ArticulatedSystem : public Object {
   std::vector<SparseJacobian> J_;
   std::vector<CoordinateFrame> frameOfInterest_;
 
- protected:
   std::vector<Child> rootChild_;
   std::vector<std::string> bodyName;
   std::vector<std::string> movableJointNames;
@@ -1791,7 +1790,6 @@ class ArticulatedSystem : public Object {
   int allowedNumberOfInternalContactsBetweenTwoBodies = 1;
   int previousWorldIndex_;
 
- private:
   size_t nbody, dof = 0, gcDim = 0;
   bool dampedDiagonalTermUpdated_ = false;
   bool computeInverseDynamics_ = false;
